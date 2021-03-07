@@ -1,0 +1,27 @@
+apiVersion: app/v1
+kind: Deployment
+metadata:
+  name: myapp-v1
+  labels:
+    app: myapp
+    version: "1.0"
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+        version: "1.0"
+    spec: 
+      containers:
+      - name: myapp
+        image: neethujose/docker-app
+        ports:
+        - name: http-server
+          containerPort: 8080
+
+
+
